@@ -4,13 +4,9 @@ import Product from './pages/Product'
 import Add from './pages/Add'
 import Update from './pages/Update'
 
-import { useState } from 'react'
-import './App.css'
-import NavBar from './components/NavBar'
-
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter >
     <NavBar/>
       <div className="App">
         <Routes>

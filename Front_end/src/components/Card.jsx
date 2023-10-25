@@ -2,21 +2,22 @@ import { Link } from 'react-router-dom'
 import React from 'react'
 import axios from 'axios'
 
-const Card = () => {
+const Card = ({product}) => {
   return (
-    <div className="card flex flex-row flex-wrap mt-5 justify-center items-center">
-      <div className="card w-96 bg-base-100 shadow-xl pb-4 px-8">
+    <div className="">
+      <div className="card w-[23.5rem] bg-base-100 pb-4 mb-7 shadow-xl  hover:shadow-2xl duration-300 hover:scale-105" key={product._id}>
         <figure>
-          <img
-            src="https://i.pinimg.com/564x/ac/c2/39/acc2392b71728d042b29c831f3c43146.jpg"
-            alt=""
-          />
+          <img src={product.product_img} alt="Guitar"/>
         </figure>
-        <div className="card-body">
-          <h2 className="card-title">Shoes!</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
-          <div className="card-actions justify-end">
-            <button className="btn btn-primary">Buy Now</button>
+        <div className="card-body p-[1.5rem] ">
+          <h2 className="card-title truncate whitespace-pre hover:whitespace-normal ">{product.product_name}</h2>
+          <div className="card-actions justify-between my-1">
+            <div className="text-lg">฿{product.product_price}</div>  
+            <div className="">{product.product_type}</div>
+          </div>
+          <div className='join justify-center'>
+            <button className="btn btn-warning mx-1 w-32 ">Edit</button>
+            <button className="btn btn-error mx-1 w-32">Delete</button>
           </div>
         </div>
       </div>
