@@ -3,63 +3,52 @@ import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
-    <div className="navbar bg-[#5886af] text-neutral-content h-20 ">
+    <div className="navbar bg-[#8f262b] text-neutral-content h-20 ">
       <div className="navbar-start">
-        <a className="btn btn-link no-underline hover:no-underline text-3xl text-neutral hover:text-base-100">
+        <a className="btn btn-link no-underline hover:no-underline text-3xl text-base-100 hover:text-current">
           Project
         </a>
       </div>
       <div className="navbar-center text-neutral-content hidden lg:flex">
-        <Link className="btn btn-link no-underline hover:no-underline text-lg text-neutral normal-case w-28 hover:text-base-100 hover:bg-[#3e5f7c6c]"
+        <Link className="btn btn-link no-underline hover:no-underline text-lg text-base-300 normal-case w-28 hover:text-base-100 hover:bg-[#671c2165]"
           aria-current="page" to="/">
           Home
         </Link>
-        <Link className="btn btn-link no-underline hover:no-underline text-lg text-neutral normal-case w-28 hover:text-base-100 hover:bg-[#3e5f7c6c]"
+        <Link className="btn btn-link no-underline hover:no-underline text-lg text-base-300 normal-case w-28 hover:text-base-100 hover:bg-[#671c2165]"
           aria-current="page" to="/add">
           Add
         </Link>
-        <Link className="btn btn-link no-underline hover:no-underline text-lg text-neutral normal-case w-28 hover:text-base-100 hover:bg-[#3e5f7c6c]"
+        <Link className="btn btn-link no-underline hover:no-underline text-lg text-base-300 normal-case w-28 hover:text-base-100 hover:bg-[#671c2165]"
         >
           Product
         </Link>
       </div>
       <div className="navbar-end">
-        <div className="flex-none gap-2 mr-2">
-          <div className="form-control">
-            <input
-              type="text"
-              placeholder="Search"
-              className="input border-none w-24 md:w-auto"
-            />
-          </div>
-        </div>
         <div className="dropdown dropdown-end mr-2">
           <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
             <div className="w-10 rounded-full">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
+              <svg className='stroke-base-300 hover:stroke-base-100'
+                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} 
               >
-                <path d="M10 8a3 3 0 100-6 3 3 0 000 6zM3.465 14.493a1.23 1.23 0 00.41 1.412A9.957 9.957 0 0010 18c2.31 0 4.438-.784 6.131-2.1.43-.333.604-.903.408-1.41a7.002 7.002 0 00-13.074.003z" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
             </div>
           </label>
           <ul
             tabIndex={0}
-            className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-neutral rounded-box w-52"
+            className=" mt-[0.8rem] z-[1] p-2 shadow-2xl menu menu-sm dropdown-content bg-[#8f262b] rounded-box w-52"
           >
             <li>
-              <a>Login</a>
+              <a className='text-base-300 hover:text-base-100'>Login</a>
             </li>
             <li>
-              <a>SignUp</a>
+              <a className='text-base-300 hover:text-base-100'>SignUp</a>
             </li>
             <li>
-              <a>Profile</a>
+              <a className='text-base-300 hover:text-base-100'>Profile</a>
             </li>
             <li>
-              <a>Logout</a>
+              <a className='text-base-300 hover:text-base-100'>Logout</a>
             </li>
           </ul>
         </div>
