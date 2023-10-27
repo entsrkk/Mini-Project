@@ -2,22 +2,24 @@ import { Link } from 'react-router-dom'
 import React from 'react'
 import axios from 'axios'
 
-const Card = ({product}) => {
+const Card = ({product, handleDelete}) => {
   return (
-    <div className="">
-      <div className="card w-[20rem] bg-base-100 pb-4 mb-7 shadow-xl  hover:shadow-2xl duration-300 hover:scale-105 " key={product._id}>
+    <div className="drop-shadow-md ">
+      <div className="card w-[20rem] bg-base-100 pb-4 mb-7 shadow-xl  hover:shadow-2xl duration-300 hover:scale-105 border" key={product._id}>
         <figure >
-          <img src={product.product_img} alt="Guitar"/>
+          <img src={product.product_img} alt="Guitar" />
         </figure>
         <div className="card-body p-[1.5rem] ">
-          <h2 className="card-title line-clamp-2 hover:line-clamp-3 ">{product.product_name}</h2>
+          <h3 className="card-title mt-4 text-sm text-gray-700 font-semibold ">{product.product_name}</h3>
           <div className="card-actions justify-between items-center my-1">
-            <span className="text-lg text-red-600">฿{product.product_price}</span>  
-            <span className="text-sm ">{product.product_type}</span>
+            <span className=" text-base text-red-600">฿{product.product_price}</span>  
+            <span className="text-sm">{product.product_type}</span>
           </div>
           <div className='join justify-center'>
-            <button className="btn btn-warning mx-1 w-32 ">Edit</button>
-            <button className="btn btn-error mx-1 w-32 ">Delete</button>
+            <Link to={`/update/${product._id}`} className="btn btn-warning mx-1 w-32 hover:bg-yellow-500 hover:text-base-100">Edit</Link>
+            <Link to="" className="btn btn-error mx-1 w-32 hover:bg-rose-600 hover:text-base-100" onClick={()=>{
+              handleDelete(product._id)
+            }}>Delete</Link>
           </div>
         </div>
       </div>

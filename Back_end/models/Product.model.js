@@ -13,7 +13,7 @@ const ProductSchema = new mongoose.Schema({
         require: true
     },
     product_price:{
-        type: Number,
+        type: String,
         require: true
     },
     product_img:{
