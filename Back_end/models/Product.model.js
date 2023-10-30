@@ -1,6 +1,4 @@
 const mongoose  = require("mongoose");
-
-
 //ประกาศตัวแปร ProductSchema สำหรับเก็บรูปแบบข้อมูล
 //การสร้างรูปแบบของข้อมูลใหม่ที่ใช้ mongoose.Schema เป็น constructor ของ Mongoose.
 const ProductSchema = new mongoose.Schema({
