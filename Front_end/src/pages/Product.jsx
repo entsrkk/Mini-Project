@@ -42,11 +42,11 @@ const Product = () => {
     }
     return (
         <div>
-            <div className="container flex justify-center items-center mx-auto my-4">
+            <div className="">
                 <Categories allCategories={allCategories} filterItems={filterItems} />
             </div>
             <div className="row">
-                <div className="card flex flex-row flex-wrap my-6 mx-16 justify-center items-center ">
+                <div className="card flex flex-row flex-wrap my-7 mx-16 justify-center items-center ">
                     {products.map(product => (
                         <Card key={product._id} product={product} handleDelete={handleDelete} />
                     ))}

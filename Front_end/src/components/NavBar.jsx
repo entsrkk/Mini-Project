@@ -22,23 +22,10 @@ const NavBar = () => {
               aria-current="page" to="/add">
               Add
             </Link>
-            {/* dropdown */}
-            <div className="dropdown ">
-              <label tabIndex={0} className="btn btn-ghost  w-28">
-                  <Link className="btn btn-link no-underline hover:no-underline text-lg text-base-300 normal-case w-28 hover:text-base-100 hover:bg-[#671c2165]"
-                  >
-                    Product
-                  </Link>
-              </label>
-              <ul
-                tabIndex={0}
-                className=" mt-[0.8rem] z-[1] p-2 shadow-2xl menu menu-sm dropdown-content bg-[#8f262b] rounded-box w-52"
-              >
-                <li>
-                  <a className='text-base-300 hover:text-base-100'></a>
-                </li>
-              </ul>
-            </div>
+            <Link className="btn btn-link no-underline hover:no-underline text-lg text-base-300 normal-case w-28 hover:text-base-100 hover:bg-[#671c2165]"
+              aria-current="page" to="/add">
+              Profile
+            </Link>
           </div>
           <div className="dropdown dropdown-end mr-2 ">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar ">
@@ -59,9 +46,6 @@ const NavBar = () => {
               </li>
               <li>
                 <a className='text-base-300 hover:text-base-100'>SignUp</a>
-              </li>
-              <li>
-                <a className='text-base-300 hover:text-base-100'>Profile</a>
               </li>
               <li>
                 <a className='text-base-300 hover:text-base-100'>Logout</a>

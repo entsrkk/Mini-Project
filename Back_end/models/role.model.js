@@ -1,12 +1,10 @@
-const mongoose  = require("mongoose");
+const mongoose = require('mongoose');
 
-const RoleSchema = new mongoose.Schema ({
-    id:{
-        type: String,
-    },
-    name:{
-        type: String,
-    }
-})
+const RoleSchema = new mongoose.Schema({
+  name: String,
+});
 
-module.exports = mongoose.model('Role' ,RoleSchema)
+//สร้าง model Role โดยใช้ mongoose.model และส่งข้อมูล RoleSchema มา
+const Role = mongoose.model('Role', RoleSchema);
+
+module.exports = Role;

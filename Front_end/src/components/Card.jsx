@@ -4,8 +4,8 @@ import axios from 'axios'
 
 const Card = ({product, handleDelete}) => {
   return (
-    <div className="drop-shadow-md mx-4">   
-      <div className="card w-[20rem] bg-base-100 pb-4 mb-7 shadow-xl  hover:shadow-2xl duration-300 hover:scale-105 border" key={product._id}>
+    <div className="drop-shadow-md mx-4 ">   
+      <div className="card w-[20rem] bg-base-100 pb-4 mb-7 shadow-xl  hover:shadow-2xl duration-300 hover:scale-105 border " key={product._id}>
         <figure >
           <img src={product.product_img} alt="Guitar" />
         </figure>

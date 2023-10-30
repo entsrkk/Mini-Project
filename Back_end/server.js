@@ -1,7 +1,8 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require('mongoose');
-const products = require('./routes/products.route')
+const products = require('./routes/products.route');
+const storeUserController = require("./controllers/storeUser.controller");
 
 const PORT = 5000;
 const app = express();
@@ -14,7 +15,7 @@ const url = process.env.MONGODB_CONNECT_URL
 //Node Promise เป็น native ที่ให้มา
 mongoose.Promise = global.Promise;
 
-//connect
+//connect กำหนด useNewUrlParser และ useUnifiedTopology ให้เป็น true
 mongoose.connect(url, {dbName: 'product', useNewUrlParser: true, useUnifiedTopology: true})
     .then(() => console.log('Connection to MongoDB Successfully!'))
     .catch((error) =>console.log(error))
@@ -30,6 +31,7 @@ app.get('/', (req,res) =>{
 
 //Routes
 app.use('/products' ,products)
+app.post('/user/register',storeUserController)
 
 app.listen(PORT, () => {
     console.log("Server is runing on http://localhost:" + PORT);
