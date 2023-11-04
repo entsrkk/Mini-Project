@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import axios, { Axios } from 'axios'
 import Card from '../components/Card'
 import Categories from '../components/Categories'
-
+import Slide from '../components/Slide'
 
 const Product = () => {
     const [products, setProducts] = useState([])
@@ -44,6 +44,9 @@ const Product = () => {
         <div>
             <div className="">
                 <Categories allCategories={allCategories} filterItems={filterItems} />
+            </div>
+            <div>
+                <Slide/>
             </div>
             <div className="row">
                 <div className="card flex flex-row flex-wrap my-7 mx-16 justify-center items-center ">
