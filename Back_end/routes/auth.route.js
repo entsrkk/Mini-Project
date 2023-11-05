@@ -1,11 +1,23 @@
-const express = require('express');
-const {verifySignUp} = require("../middieware");
-const User = require('../models/user.model');
-const router = express.Router();
+const { verifySignUp } = require("../middlewares");
+const controller = require("../controllers/auth.controller");
 
-router.post('/register', async (req, res)=> {
-    const user = new User(req.body); //ทำการสร้าง Obj ใหม่จาก User ที่รับข้อมูลมาจาก req.body
-    await user.save(); //ใช้ await เพื่อรอให้บันทึกลงใน MongoDB เสร็จ โดยการเรียก Method save บน Obj user
-});
-
-module.exports = router;
+module.exports = function(app) {
+    app.use(function(req, res, next) {
+      res.header(
+        "Access-Control-Allow-Headers",
+        "set-cookie, Origin, Content-Type, Accept",
+      );
+      next();
+    });
+    app.post(
+      "/api/auth/signup",
+      [
+        verifySignUp.checkDuplicateUsernameOrEmail,
+        verifySignUp.checkRolesExisted
+      ],
+      controller.signup
+    );
+  
+    app.post("/api/auth/signin", controller.signin);
+    app.post("/api/auth/signout", controller.signout);
+  };

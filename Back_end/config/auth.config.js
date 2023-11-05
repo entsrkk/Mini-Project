@@ -1,3 +1,4 @@
 module.exports = {
-    secret: "niti-secret-key"
+    secret: "niti-secret-key",
+    jwtExpiration: 60,
   };
