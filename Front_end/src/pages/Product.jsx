@@ -4,14 +4,19 @@ import axios, { Axios } from 'axios'
 import Card from '../components/Card'
 import Categories from '../components/Categories'
 import Slide from '../components/Slide'
+import authHeader from "../service/auth.header";
+import { useAuthContext } from '../context/AuthContext'
+
+const URL = import.meta.env.VITE_BASE_URL;
 
 const Product = () => {
+    const { user } = useAuthContext();
     const [products, setProducts] = useState([])
     const [allCategories, setAllCategories] = useState(['']);
     useEffect(() => {
         const fetchAllProducts = async () => {
             try {
-                const res = await axios.get(`http://localhost:5000/products`)
+                const res = await axios.get(`${URL}/products`)
                 setProducts(res.data);
 
                 const categories = ['All',...new Set(res.data.map(item => item.product_type))];
@@ -24,7 +29,7 @@ const Product = () => {
     }, []);
     const handleDelete = async (_id) => {
         try {
-            await axios.delete(`http://localhost:5000/products/${_id}`)
+            await axios.delete(`${URL}/products/${_id}`)
             window.location.reload();
             alert("Product ID " + _id + " is Delete Successfully");
         } catch (error) {
@@ -33,7 +38,7 @@ const Product = () => {
     }
     const filterItems = async (product_type) => {
         if (product_type === 'All') {
-            const res = await axios.get(`http://localhost:5000/products`)
+            const res = await axios.get(`${URL}/products`)
             setProducts(res.data);
         } else {
             const newItems = products.filter(item => item.product_type === product_type);
@@ -42,9 +47,11 @@ const Product = () => {
     }
     return (
         <div>
+            {user && (
             <div className="">
                 <Categories allCategories={allCategories} filterItems={filterItems} />
             </div>
+            )}
             <div>
                 <Slide/>
             </div>

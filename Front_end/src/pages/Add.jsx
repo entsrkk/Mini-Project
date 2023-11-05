@@ -1,6 +1,9 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import authHeader from '../service/auth.header';
+
+const URL = import.meta.env.VITE_BASE_URL;
 
 const Add = () => {
   const [product, setProduct] = useState({
@@ -9,7 +12,7 @@ const Add = () => {
     product_price: "",
     product_img: "",
   })
-
+  
   const navigate = useNavigate();
   const [error, setError] = useState();
 
@@ -20,7 +23,7 @@ const Add = () => {
   const handleClick = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`http://localhost:5000/products`, product)
+      await axios.post(`${URL}/products`, product)
       console.log("Product data:", product);
       alert("Add New Product Successfully");
       navigate("/")
@@ -40,6 +43,7 @@ const Add = () => {
   }
 
   return (
+    
     <div className='container mt-12 mx-auto w-full max-w-2xl justify-between items-center rounded-[1rem] shadow-2xl border'>
       <h1 className='text-4xl text-center font-extrabold py-4'>Create New Product</h1>
       <div className="card card-body justify-center items-center py-4 ">

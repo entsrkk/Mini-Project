@@ -2,6 +2,8 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 
+const URL = import.meta.env.VITE_BASE_URL;
+
 const Update = () => {
   const [product, setProduct] = useState({
     product_name: "",
@@ -21,7 +23,7 @@ const Update = () => {
   useEffect(() => {
     const fetchAllProducts = async () => {
       try {
-        const res = await axios.get(`http://localhost:5000/products/${_id}`)
+        const res = await axios.get(`${URL}/products/${_id}`)
         setProduct(res.data);
       } catch (error) {
         console.error(error);
@@ -33,7 +35,7 @@ const Update = () => {
   const handleClick = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:5000/products/${_id}`, product)
+      await axios.put(`${URL}/products/${_id}`, product)
       console.log("Update ProductData:", product);
       alert("Product ID "+_id +" is Update Successfully");
       navigate("/")

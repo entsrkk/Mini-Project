@@ -114,6 +114,7 @@ exports.signin = (req, res) => {
         username: user.username,
         email: user.email,
         roles: authorities,
+        accessToken: token,
       });
     })
     //ถ้ามีข้อผิดพลาดในบล็อค .then จะเข้าบล็อค .cath ทันที และจะส่ง response status 500(Internal Server Error) และส่ง message: err

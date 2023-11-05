@@ -1,8 +1,17 @@
-import React from 'react'
-import { Link } from "react-router-dom";
-
+import React, { useState } from 'react';
+import { Link, useNavigate } from "react-router-dom";
+import AuthService from '../service/auth.service';
+import { useAuthContext } from '../context/AuthContext';
 
 const NavBar = () => {
+  const { user, logout } = useAuthContext();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate("/Signin");
+  }
+
   return (
     <nav className='bg-[#8f262b] p-4'>
       <div className="container mx-auto flex justify-between items-center bg-[#8f262b] text-neutral-content ">
@@ -18,17 +27,21 @@ const NavBar = () => {
               aria-current="page" to="/">
               Home
             </Link>
+            {user && user.roles.includes("ROLE_ADMIN") && (
             <Link className="btn btn-link no-underline hover:no-underline text-lg text-base-300 normal-case w-28 hover:text-base-100 hover:bg-[#671c2165]"
-              aria-current="page" to="/add">
+               to="/add">
               Add
             </Link>
+            )}
+            {user && (
             <Link className="btn btn-link no-underline hover:no-underline text-lg text-base-300 normal-case w-28 hover:text-base-100 hover:bg-[#671c2165]"
-              aria-current="page" to="/add">
+              aria-current="page" to="/profile">
               Profile
             </Link>
+            )}
           </div>
           <div className="dropdown dropdown-end mr-2 ">
-            <label tabIndex={0} className="btn btn-ghost btn-circle avatar ">
+            <label tabIndex={0} className=" btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full ">
                 <svg className='stroke-base-300 hover:stroke-base-100'
                   xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5}
@@ -39,17 +52,28 @@ const NavBar = () => {
             </label>
             <ul
               tabIndex={0}
-              className=" mt-[0.8rem] z-[1] p-2 shadow-2xl menu menu-sm dropdown-content bg-[#8f262b] rounded-box w-52"
+              className="mt-5 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-300 rounded-box w-52"
             >
-              <li>
-                <a className='text-base-300 hover:text-base-100'>Login</a>
-              </li>
-              <li>
-                <a className='text-base-300 hover:text-base-100'>SignUp</a>
-              </li>
-              <li>
-                <a className='text-base-300 hover:text-base-100'>Logout</a>
-              </li>
+              {user && (
+              <span className="badge border-none bg-base-300 myt-1 mb-2">
+                <p className='text-[1rem] font-semibold text-black'>Welcome, {user.username}</p>
+              </span>
+              )}
+              {!user && (
+                <li>
+                  <Link className='text-black' aria-current="page" to="/signup">SignUp</Link>
+                </li>
+              )}
+              {!user && (
+                <li>
+                  <Link className='text-black' aria-current="page" to="/signin">Login</Link>
+                </li>
+              )}
+              {user && (
+                <li>
+                  <Link className='text-black' aria-current="page" to="/signin" onClick={handleLogout}>Logout</Link>
+                </li>
+              )}
             </ul>
           </div>
         </div>
@@ -58,4 +82,4 @@ const NavBar = () => {
   )
 }
 
-export default NavBar
+export default NavBar;
