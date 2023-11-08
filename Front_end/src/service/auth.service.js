@@ -12,8 +12,7 @@ const login =  async (username, password) =>{
     return res.data;
 };
 
-const register = async (username,email,password) => {
-    
+const register = async (username,email,password) => { 
     return await axios.post(API_URL + "signup", {username,email,password})
 }
 const getCurrentUser = () =>{

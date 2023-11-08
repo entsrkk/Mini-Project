@@ -43,7 +43,6 @@ const Add = () => {
   }
 
   return (
-    
     <div className='container mt-12 mx-auto w-full max-w-2xl justify-between items-center rounded-[1rem] shadow-2xl border'>
       <h1 className='text-4xl text-center font-extrabold py-4'>Create New Product</h1>
       <div className="card card-body justify-center items-center py-4 ">
