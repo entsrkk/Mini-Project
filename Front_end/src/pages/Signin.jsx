@@ -51,7 +51,7 @@ const Signin = () => {
                   </div>
                   <div>
                     <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">Password</label>
-                    <input name="password" type="text" className="block w-full rounded-lg border-0 p-2 text-gray-900 shadow-sm ring-2 ring-inset ring-base-300 focus:border-none "
+                    <input name="password" type="password" className="block w-full rounded-lg border-0 p-2 text-gray-900 shadow-sm ring-2 ring-inset ring-base-300 focus:border-none "
                       value={user.password} onChange={handleInputChange} />
                   </div>
                 </form>

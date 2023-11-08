@@ -49,10 +49,10 @@ const Product = () => {
         <div>
             {user && (
             <div className="">
-                <Categories allCategories={allCategories} filterItems={filterItems} />
+               <Categories allCategories={allCategories} filterItems={filterItems} />
             </div>
             )}
-            <div>
+            <div className='w-auto h-auto mx-auto'>
                 <Slide/>
             </div>
             <div className="row">

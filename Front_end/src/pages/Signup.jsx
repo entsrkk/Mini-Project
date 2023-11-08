@@ -36,7 +36,7 @@ function Signup() {
       if (user.confirmPassword === user.password) {
         const register = await AuthService.register(user.username,user.email,user.password);
         console.log("SignUp Success", user);
-        //navigate("/Signin") //เมื่อ signup successful จะไปหน้า Signin
+        navigate("/Signin") //เมื่อ signup successful จะไปหน้า Signin
       }
       else{
         alert("")
@@ -63,17 +63,17 @@ function Signup() {
                   </div>
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">Email Address</label>
-                    <input name="email" type="text" className="block w-full rounded-lg border-0 p-2 text-gray-900 shadow-sm ring-2 ring-inset ring-base-300 focus:border-none"
+                    <input name="email" type="email" className="block w-full rounded-lg border-0 p-2 text-gray-900 shadow-sm ring-2 ring-inset ring-base-300 focus:border-none"
                     value={user.email}onChange={handleInputChange}/>
                   </div>
                   <div>
                     <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">Password</label>
-                    <input name="password" type="text" className="block w-full rounded-lg border-0 p-2 text-gray-900 shadow-sm ring-2 ring-inset ring-base-300 focus:border-none "
+                    <input name="password" type="password" className="block w-full rounded-lg border-0 p-2 text-gray-900 shadow-sm ring-2 ring-inset ring-base-300 focus:border-none "
                     value={user.password} onChange={handleInputChange}/>
                   </div>
                   <div>
                     <label htmlFor="confirmPassword" className="block text-sm font-medium leading-6 text-gray-900">Confirm Password</label>
-                    <input name="confirmPassword" type="text" className="block w-full rounded-lg border-0 p-2 text-gray-900 shadow-sm ring-2 ring-inset ring-base-300 focus:border-none "
+                    <input name="confirmPassword" type="password" className="block w-full rounded-lg border-0 p-2 text-gray-900 shadow-sm ring-2 ring-inset ring-base-300 focus:border-none "
                     value={user.confirmPassword} onChange={handleInputChange}/>
                   </div>
                 </form>
@@ -82,7 +82,6 @@ function Signup() {
                 <Link className="btn btn-warning mx-1.5 w-32 hover:bg-yellow-500 hover:text-base-100 normal-case" onClick={handleClick}>Sign Up</Link>
                 <Link className="btn btn-error mx-1.5 w-32 hover:bg-rose-600 hover:text-base-100 normal-case" onClick={handleCancel}>Cancel</Link>
               </div>
-
             </div>
           </div>
         </div>
