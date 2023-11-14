@@ -14,10 +14,15 @@ const Update = () => {
 
   const navigate = useNavigate();
   const [error, setError] = useState();
-  const {_id} = useParams();
+  //Hook useParams จาก react-router จะช่วยในการดึงค่าพารามิเตอร์ที่ถูกส่งมา
+  const {_id} = useParams(); 
 
   const handleChange = (e) => {
-    setProduct((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    //ถูกใช้เพื่ออัปเดตค่า state ของ product ที่เก็บค่าของ form
+    setProduct((prev) => (
+      //ใช้สร้าง obj ใหม่ที่มีค่าเหมือนกับ prev มีการอัปเดตค่าที่มีชื่อ e.target.name ด้วยค่า e.target.value
+      { ...prev, [e.target.name]: e.target.value }
+      ));
   };
 
   useEffect(() => {

@@ -2,7 +2,6 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require('mongoose');
 const products = require('./routes/products.route');
-const storeUserController = require("./controllers/storeUser.controller");
 const cookieSession = require("cookie-session");
 
 const db = require("./models");

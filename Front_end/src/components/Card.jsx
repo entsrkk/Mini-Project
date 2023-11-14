@@ -4,6 +4,7 @@ import axios from 'axios'
 import { useAuthContext } from '../context/AuthContext'
 
 const Card = ({ product, handleDelete }) => {
+  //ใช้ Hook useAuthContext เพื่อดึงข้อมูล user ออกมาจาก AuthContext
   const { user } = useAuthContext();
   return (
     <div className="drop-shadow-md mx-4 ">
@@ -23,7 +24,9 @@ const Card = ({ product, handleDelete }) => {
             <>
               <div className='join justify-center'>
                 <Link to={`/update/${product._id}`} className="btn btn-warning mx-1 w-32 hover:bg-yellow-500 hover:text-base-100">Edit</Link>
-                <Link to="" className="btn btn-error mx-1 w-32 hover:bg-rose-600 hover:text-base-100" onClick={() => {
+                <Link to="" className="btn btn-error mx-1 w-32 hover:bg-rose-600 hover:text-base-100" 
+                // handleDelete ใช้เป็นรูปแบบ callback function เพราะป้องกันการทำงานโดยทันที และเพื่อให้ทำงานเฉพาะตอน click เท่านั้น
+                onClick={() => {
                   handleDelete(product._id)
                 }}>Delete</Link>
               </div>

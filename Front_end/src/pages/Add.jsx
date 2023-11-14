@@ -6,6 +6,8 @@ import authHeader from '../service/auth.header';
 const URL = import.meta.env.VITE_BASE_URL;
 
 const Add = () => {
+  //ใช้ Hook useState ใน React เพื่อสร้างตัวแปร state ที่ชื่อว่า product และฟังก์ชัน setProduct เพื่ออัปเดตค่าของ product
+  //จะเก็บ obj ทั้งหมด 4 ตัว คือ  product_name, product_type, product_price, product_img
   const [product, setProduct] = useState({
     product_name: "",
     product_type: "",

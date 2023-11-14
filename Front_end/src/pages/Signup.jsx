@@ -38,7 +38,7 @@ function Signup() {
         navigate("/Signin") //เมื่อ signup successful จะไปหน้า Signin
       }
       else{
-        alert("")
+        alert("password doesn't match")
       }
     } catch (error) {
       console.error(error);
