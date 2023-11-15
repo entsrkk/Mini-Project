@@ -92,7 +92,7 @@ app.get('/', (req, res) => {
 app.use(
     cookieSession({
         name: "niti-session",
-        keys: ["COOKIE_SECRET"], // should use as secret environment variable
+        keys: ["COOKIE_SECRET"], 
     })
 );
 

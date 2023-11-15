@@ -60,12 +60,12 @@ const Update = () => {
   }
 
   return (
-    <div className='container mt-12 mx-auto w-full max-w-2xl justify-between items-center rounded-[1rem] shadow-2xl border'>
-      <h1 className='text-4xl text-center font-extrabold py-4'>Update Products</h1>
+    <div className='container mt-12 mx-auto w-full max-w-3xl justify-between items-center rounded-[1rem] shadow-2xl border'>
+      <h1 className='text-4xl text-center font-extrabold mt-1 py-4'>Update Products</h1>
       <div className="card card-body justify-center items-center py-4 ">
         <div className="error">{error && "somthing went wrong !!"}</div>
-        <div className="mx-auto w-full max-w-md">
-          <form className="space-y-3 ">
+        <div className="mx-auto w-full max-w-xl">
+          <form className="space-y-3">
             <div>
               <label htmlFor="product_name" className="block text-sm font-medium leading-6 text-gray-900">Product name</label>
               <input name="product_name" type="text" className="block w-full rounded-lg border-0 p-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:border-none" value={product.product_name}
