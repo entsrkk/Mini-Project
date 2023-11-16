@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
 
 //getById ใช้ Method findById(req.params.id) จะเป็นการหาข้อมูลทั้งหมด
 //ประกาศตัวแปร products แล้วใช้ฟังก์ชัน Product.findById ที่รับค่าจาก (req.params.id)
-router.get('/:id', async (req, res) => {
+router.get('/:id',[authJwt.verifyToken], async (req, res) => {
     try {
         const products = await Product.findById(req.params.id);
         res.json(products);
@@ -43,7 +43,7 @@ router.post('/', async (req, res) => {
 
 //UpdateById ใช้ Method findByIdAndUpdate(req.params.id, req.body) จะเป็นการหาข้อมูลทั้งหมด
 //ประกาศตัวแปร updateProducts แล้วใช้ฟังก์ชัน Product.findByIdAndUpdate ที่รับค่าจาก (req.params.id, req.body)
-router.put('/:id', async (req, res) => {
+router.put('/:id',[authJwt.verifyToken,authJwt.isAdmin], async (req, res) => {
     try {
         const updateProducts = await Product.findByIdAndUpdate(req.params.id, req.body);
         res.status(200).json(updateProducts);
